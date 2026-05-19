@@ -32,7 +32,7 @@ tests/
 `src/index.ts` is the only file whose exports are public. Everything else is internal. Users do:
 
 ```ts
-import Klang, { NotFoundError, type ConversationDetail } from 'klang';
+import Klang, { NotFoundError, type ConversationDetail } from '@klang-ai/sdk-ts';
 ```
 
 The default export is `Klang`. Named exports cover: the `Klang` class itself, every error class, every resource type, `APIPromise`, `CursorPage`, `PagePromise`, `VERSION`.

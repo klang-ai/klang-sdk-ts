@@ -9,13 +9,13 @@ Full API reference and guides: **[docs.klang.ai](https://docs.klang.ai)**.
 ## Install
 
 ```bash
-npm install klang
+npm install @klang-ai/sdk-ts
 ```
 
 ## Quick start
 
 ```ts
-import Klang, { NotFoundError } from 'klang';
+import Klang, { NotFoundError } from '@klang-ai/sdk-ts';
 
 const klang = new Klang({ apiKey: process.env.KLANG_API_KEY });
 

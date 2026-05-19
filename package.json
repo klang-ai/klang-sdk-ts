@@ -1,9 +1,11 @@
 {
-  "name": "klang",
+  "name": "@klang-ai/sdk-ts",
   "version": "0.1.0",
   "description": "Official TypeScript SDK for the Klang API.",
   "license": "MIT",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://docs.klang.ai",
   "repository": {
     "type": "git",
