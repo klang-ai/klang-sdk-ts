@@ -2,7 +2,25 @@
   "name": "klang",
   "version": "0.1.0",
   "description": "Official TypeScript SDK for the Klang API.",
+  "license": "MIT",
   "private": true,
+  "homepage": "https://docs.klang.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klang-ai/klang-sdk-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/klang-ai/klang-sdk-ts/issues"
+  },
+  "keywords": [
+    "klang",
+    "sdk",
+    "typescript",
+    "api",
+    "transcription",
+    "meetings",
+    "ai"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

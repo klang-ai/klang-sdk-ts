@@ -1,6 +1,6 @@
 # Klang TypeScript SDK — AI maintenance playbook
 
-This file is the contract between you (Claude) and this codebase. When the OpenAPI spec at `../l2s-backend-service/openapi/openapi.yaml` changes, you update the SDK by re-reading the spec and editing the files described below. Follow these conventions exactly — they are what make the SDK feel cohesive across sessions.
+This file is the contract between you (Claude) and this codebase. When the Klang OpenAPI spec changes, you update the SDK by re-reading the spec and editing the files described below. Follow these conventions exactly — they are what make the SDK feel cohesive across sessions.
 
 The SDK is hand-written code that ships to npm as a normal package. There is no codegen step, no template engine, no proprietary DSL. Just TypeScript that you edit.
 
@@ -160,7 +160,7 @@ Defaults are in `src/core/request.ts`:
 - `Retry-After` header is honored (seconds or HTTP-date)
 - `Idempotency-Key` header is auto-added (UUIDv4) on retried requests
 
-**Do not change these defaults without a documented reason.** They match what users of the previous Stainless-generated SDK had.
+**Do not change these defaults without a documented reason.**
 
 ## How to add a new endpoint (5 steps)
 
@@ -202,7 +202,7 @@ When the spec adds a new tag:
 - **Do not** split types into separate `*.types.ts` files — keep them with their resource.
 - **Do not** add wrappers/helpers in `src/core/` that aren't called by `src/client.ts` or a resource.
 - **Do not** generate a separate barrel of all internal types from `core/`. The only public types are the ones explicitly re-exported in `src/index.ts`.
-- **Do not** add a `// File generated from our OpenAPI spec by Stainless` comment, or any "do not edit" markers. This SDK is hand-edited.
+- **Do not** add "generated file" or "do not edit" markers. This SDK is hand-edited.
 - **Do not** call out in code comments that something was changed for a spec update — that's PR-description territory.
 
 ## Verifying changes

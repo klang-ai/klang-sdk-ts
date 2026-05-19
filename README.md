@@ -1,6 +1,10 @@
 # Klang TypeScript SDK
 
-Official TypeScript client for the [Klang API](https://app.klang.ai/api/v1).
+Official TypeScript client for the [Klang API](https://docs.klang.ai).
+
+## Documentation
+
+Full API reference and guides: **[docs.klang.ai](https://docs.klang.ai)**.
 
 ## Install
 
@@ -38,8 +42,7 @@ try {
 
 ```ts
 new Klang({
-  apiKey: 'sk_...',                          // or set KLANG_API_KEY
-  baseURL: 'https://app.klang.ai/api/v1',    // or set KLANG_BASE_URL
+  apiKey: 'sk_...',     // or set KLANG_API_KEY
   timeout: 60_000,
   maxRetries: 2,
 });
@@ -93,4 +96,4 @@ Default `maxRetries: 2` with exponential backoff (0.5s × 2^n, capped at 8s, wit
 
 ## License
 
-Proprietary. See LICENSE.
+MIT. See LICENSE.
