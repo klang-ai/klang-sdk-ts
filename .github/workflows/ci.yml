@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_smoke:
+        description: 'Run live smoke test (requires KLANG_API_KEY secret)'
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run contract
+      - run: npm run build
+      - run: npm run lint
+        continue-on-error: true
+
+  smoke:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_smoke
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run smoke
+        env:
+          KLANG_API_KEY: ${{ secrets.KLANG_API_KEY }}
+          KLANG_BASE_URL: ${{ secrets.KLANG_BASE_URL }}

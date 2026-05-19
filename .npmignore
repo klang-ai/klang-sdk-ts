@@ -1,0 +1,32 @@
+# Source — only the built artifacts in dist/ ship.
+# Note: package.json `files` is the authoritative allowlist;
+# this .npmignore is belt-and-suspenders for anyone running `npm pack`
+# in a future where someone forgets the `files` field.
+src
+tests
+CLAUDE.md
+
+# Configs
+tsconfig.json
+tsconfig.contract.json
+tsup.config.ts
+eslint.config.*
+
+# CI / repo hygiene
+.github
+.gitignore
+.editorconfig
+.prettierrc*
+
+# Dev artifacts
+node_modules
+*.log
+*.tsbuildinfo
+.env
+.env.*
+.DS_Store
+coverage
+
+# Editor
+.vscode
+.idea
